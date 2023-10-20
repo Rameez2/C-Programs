@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+class Operations {
+	public:
+		int a;
+		int b;
+		Operations(int x,int y) {
+			a = x;b = y;
+		}
+		int addition() {
+			cout << "doing addition... \n";
+			return a+b;
+		}
+		int subtraction() {
+			cout << "doing subtraction... \n";
+			return a-b;
+		}
+		int division() {
+			cout << "doing division... \n";
+			return a/b;
+		}
+		int multiplication() {
+			cout << "doing multiplication... \n";
+			return a*b;
+		}
+};
+
+int main() {
+	int a,b;
+//	Operations opr(a,b);
+	bool stopProgram = false;
+	bool optionSelected;
+	string operationInput;
+	// WHILE LOOP (used to take input from user again after doing an operation)
+	while(!stopProgram) {
+		// Getting Numbers from user
+		cout << "Enter first number : ";
+		cin >> a;
+		cout << "Enter second number : ";
+		cin >> b;
+		Operations opr(a,b);
+		optionSelected = false;
+		while (!optionSelected) {
+			// user selecting operation 
+			cout << "Select Operation : \n 1: Addition \n 2: Subtraction \n 3: Division \n 4: Multiplication \n q : Exit program \n >> : ";
+			cin >> operationInput;
+			// Checking which operation user Selected 
+			// Addition
+			if(operationInput == "1") {
+				cout << opr.addition() << endl;
+				optionSelected = true;
+			}
+			// Subtraction
+			else if(operationInput == "2") {
+				cout << opr.subtraction() << endl;
+				optionSelected = true;
+			}
+			// Division
+			else if(operationInput == "3") {
+				cout << opr.division() << endl;
+				optionSelected = true;
+			}
+			// Multiplication
+			else if(operationInput == "4") {
+				cout << opr.multiplication() << endl;
+				optionSelected = true;
+			}
+			// Exit or Stop Program
+			else if(operationInput == "q") {
+				cout << "Stoping Program...";
+				optionSelected = true;
+				stopProgram = true;
+			}
+			else {
+				cout << "PLEASE SLEETC RIGHT OPTIONS \n";
+			}
+		}
+	}
+	
+	return 0;
+}
